@@ -189,7 +189,7 @@ config_modal.innerHTML = `
             <div class="pitch-value">1</div>
             <div class="clearfix"></div>
         </div>
-        <select id="ed-voice-select">
+        <select id="ed-voice-select" class="browser-default">
 
         </select>
         </form>
