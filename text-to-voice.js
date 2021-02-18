@@ -96,7 +96,7 @@ document.body.innerHTML += `
                     border-radius: 8px;
                     background: #FFFFFF77;
                 }
-                .ed-config-modal form > div {
+                .ed-config-modal .form > div {
                     display: block;
                     margin: 0 auto;
                     font-family: sans-serif;
@@ -104,17 +104,17 @@ document.body.innerHTML += `
                     padding: 5px;
                     min-height: 20px;
                 }
-                .ed-config-modal form > div label {
+                .ed-config-modal .form > div label {
                     width: 100%;
                 }
-                .ed-config-modal form select {
+                .ed-config-modal .form select {
                     max-width: 180px;
                     font-size: 14px;
                     padding: 5px;
                     border-radius: 7px;
                     border: 1px solid #777777;
                 }
-                .ed-config-modal form select:focus {
+                .ed-config-modal .form select:focus {
                     outline: none;
                 }
                 .ed-config-modal .clearfix {
@@ -144,8 +144,8 @@ document.body.innerHTML += `
                 #ed-modal-close svg {
                     color: #2A9DF4DD;
                 }
-                .ed-config-modal {
-                  min-width: 230px;
+              .ed-config-modal {
+                  width: 230px;
               }
               .ed-config-button:active,
               .ed-config-button:focus{
@@ -161,6 +161,29 @@ document.body.innerHTML += `
               }
               .ed-config-modal {
                   background: #FFFFFFee !important;
+              }
+              .ed-info p {
+                position: relative;
+                color: #2A9DF4;
+                width: fit-content;
+                cursor: pointer;
+              }
+              .ed-info div {
+                background: #D4D4D4;
+                border: 1px solid #D4D4D4;
+                padding: 5px 10px;
+                display: none;
+                position: absolute;
+                border-radius: 7px;
+                top: 100px;
+                left: 240px; 
+                width: 200px;
+              }
+              .ed-info:hover div {
+                display: block;
+              }
+              .ed-info svg {
+                color: #2A9DF4;
               }
             </style>`;
 
@@ -194,7 +217,7 @@ config_modal.innerHTML = `
         <button id="ed-modal-close">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
-        <form>
+        <div class="form">
         <div>
         </div>
         <div>
@@ -210,7 +233,14 @@ config_modal.innerHTML = `
         <select id="ed-voice-select" class="browser-default">
 
         </select>
-        </form>
+        <div class="ed-info">
+            <p>como usar?</p>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <p>Selecione com o mouse algum texto e então clique no botão de play</p>
+            </div>
+        </div>
+        </div>
     `;
 modal.appendChild(config_modal);
 
