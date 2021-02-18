@@ -144,6 +144,24 @@ document.body.innerHTML += `
                 #ed-modal-close svg {
                     color: #2A9DF4DD;
                 }
+                .ed-config-modal {
+                  min-width: 230px;
+              }
+              .ed-config-button:active,
+              .ed-config-button:focus{
+                  outline: none;
+                  background-color: #777777DD !important;
+                  transform: translateY(4px);
+              }
+              .ed-speak-button:focus,
+              .ed-speak-button:active {
+                  outline: none;
+                  background-color: #2A9DF4DD;
+                  transform: translateY(4px);
+              }
+              .ed-config-modal {
+                  background: #FFFFFFee !important;
+              }
             </style>`;
 
 // Modal Wrapper
