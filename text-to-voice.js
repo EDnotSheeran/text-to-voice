@@ -87,6 +87,7 @@ document.body.innerHTML += `
                     color: #FFFFFF;
                 }
                 .ed-config-modal {
+                    min-width: 230px;
                     position: absolute;
                     top: -300px;
                     left: 0px;
