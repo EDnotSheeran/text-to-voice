@@ -50,8 +50,9 @@ document.body.innerHTML += `
                     transform: translateY(4px);
                 }
                 .ed-speak-button svg {
-                    color: #FFFFFF;
-                }
+                  color: #FFFFFF;
+                  width: 30px;
+              }
 
                 .ed-config-button {
                     z-index: 10;
@@ -185,7 +186,73 @@ document.body.innerHTML += `
               .ed-info svg {
                 color: #2A9DF4;
               }
+              .warning-modal-wrapper {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #0003;
+                z-index: 999999;
+              }
+              .warning-modal {
+                background-color: #f5f5f5;
+                position: relative;
+                margin: 0 auto;
+                margin-top: 15%;
+                width: 350px;
+                padding: 25px;
+                border-radius: 20px;
+              }
+              .warning-modal p {
+                color: #2a9df4;
+              }
+              .warning-modal .btn-close {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                padding: 5px;
+                cursor: pointer;
+                color: #888;
+                border-radius: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+              .warning-modal .btn-close:hover {
+                background-color: #3332;
+              }
             </style>`;
+
+document.body.innerHTML += `
+  <div class="warning-modal-wrapper" hidden>
+        <div class="warning-modal">
+          <span
+            class="btn-close"
+            onclick="document.querySelector('.warning-modal-wrapper').setAttribute('hidden','hidden')"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-x"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </span>
+          <p>
+            Selecione algum texto e então aperte este botão para ouvir o conteudo.
+          </p>
+        </div>
+        </div>
+  `;
 
 // Modal Wrapper
 modal_wrapper = document.createElement("div");
@@ -205,7 +272,53 @@ modal.appendChild(config_btn);
 // Speak Button
 speak_btn = document.createElement("button");
 speak_btn.classList.add("ed-speak-button");
-speak_btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+speak_btn.innerHTML = `<svg
+version="1.1"
+xmlns="http://www.w3.org/2000/svg"
+stroke="#FFF" 
+viewBox="0 0 295.928 295.928"
+fill="#FFF"
+>
+<g>
+  <path
+    d="M193.686,68.762c-3.907,3.902-3.909,10.234-0.005,14.141c26.269,26.287,26.252,69.074-0.037,95.379
+c-3.904,3.908-3.902,10.238,0.004,14.143c1.953,1.951,4.511,2.928,7.069,2.928c2.561,0,5.12-0.979,7.073-2.932
+c34.079-34.1,34.096-89.57,0.037-123.654C203.925,64.86,197.592,64.856,193.686,68.762z"
+  />
+  <path
+    d="M156.301,97.448c-3.907,3.902-3.909,10.234-0.005,14.141c10.472,10.48,10.471,27.533-0.002,38.014
+c-3.904,3.906-3.902,10.238,0.005,14.143c1.952,1.951,4.511,2.926,7.068,2.926c2.561,0,5.121-0.976,7.073-2.932
+c18.263-18.275,18.264-48.012,0.002-66.287C166.54,93.544,160.207,93.542,156.301,97.448z"
+  />
+  <path
+    d="M252.097,24.471c-3.904-3.908-10.235-3.91-14.142-0.006c-3.907,3.904-3.909,10.236-0.005,14.143
+c50.671,50.703,50.649,133.225-0.052,183.951c-3.904,3.906-3.902,10.238,0.004,14.143c1.953,1.951,4.511,2.928,7.069,2.928
+c2.56,0,5.12-0.979,7.073-2.932C310.536,178.175,310.559,82.97,252.097,24.471z"
+  />
+  <path
+    d="M72.751,195.087c25.71-1.771,46.091-23.264,46.091-49.447c0-27.338-22.217-49.578-49.524-49.578
+c-27.309,0-49.526,22.24-49.526,49.578c0,26.182,20.381,47.674,46.092,49.447c-19.25,0.74-36.203,7.695-48.019,19.789
+C5.726,227.3-0.443,244.501,0.025,264.622c0.126,5.43,4.564,9.768,9.997,9.768h118.582c5.433,0,9.871-4.338,9.997-9.77
+c0.467-20.123-5.703-37.326-17.843-49.75C108.945,202.78,91.997,195.827,72.751,195.087z"
+  />
+</g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+</svg>
+`;
 speak_btn.addEventListener("click", readSelectedText);
 modal.appendChild(speak_btn);
 
@@ -288,8 +401,8 @@ function populateVoiceList() {
       option.textContent += " -- DEFAULT";
     }
 
-    if(voices[i].lang === DEFAULT_LANG){
-        selectedIndex = i;
+    if (voices[i].lang === DEFAULT_LANG) {
+      selectedIndex = i;
     }
 
     option.setAttribute("data-lang", voices[i].lang);
@@ -299,9 +412,7 @@ function populateVoiceList() {
   voiceSelect.selectedIndex = selectedIndex;
 }
 
-function selectVoice(lang){
-
-}
+function selectVoice(lang) {}
 
 function speak(text) {
   if (synth.speaking) {
@@ -339,10 +450,12 @@ function readSelectedText() {
     if (text !== "") {
       speak(text);
     } else {
-      if (canLog) console.error("Texto não selecionado");
+      document
+        .querySelector(".warning-modal-wrapper")
+        .removeAttribute("hidden");
     }
   } else {
-    if (canLog) console.error("Texto não selecionado");
+    document.querySelector(".warning-modal-wrapper").removeAttribute("hidden");
   }
 }
 
