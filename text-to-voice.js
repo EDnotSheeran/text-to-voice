@@ -346,6 +346,9 @@ config_modal.innerHTML = `
         <select id="ed-voice-select" class="browser-default">
 
         </select>
+        <div>
+        <label for="auto-speak">Fala automatica</label><input type="checkbox" checked name="auto-speak" id="auto-speak">
+        </div>
         <div class="ed-info">
             <p>como usar?</p>
             <div>
@@ -456,6 +459,12 @@ function readSelectedText() {
     }
   } else {
     document.querySelector(".warning-modal-wrapper").removeAttribute("hidden");
+  }
+}
+
+function autoSpeak(text) {
+  if (document.querySelector("#auto-speak").checked) {
+    speak(text);
   }
 }
 
