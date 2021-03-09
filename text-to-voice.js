@@ -1,7 +1,3 @@
-/*
-    Author: Edson Rodrigues
-    Github: https://github.com/EDnotSheeran
-*/
 const BTN_POSITION = { bottom: "25px", left: "25px" };
 const BTN_SIZE = { width: "", height: "" };
 const DEFAULT_LANG = "pt-BR";
@@ -222,6 +218,29 @@ document.body.innerHTML += `
               .warning-modal .btn-close:hover {
                 background-color: #3332;
               }
+              .ed-config-modal {
+                top: -400px !important;
+            }
+            #ed-voice-select {
+                min-height: 35px !important;
+            }
+            #ed-voice-select div {
+                background-color: #FFFFFF !important;
+            }
+            
+            .ed-config-modal .form > div:nth-last-child(2) {
+                display: flex;
+                align-items: center;
+                padding: 5px 0;
+                justify-content: space-evenly;
+                margin-top: 10px;
+            }
+            
+            .ed-config-modal .form > div label {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: fit-content !important;
+            }
             </style>`;
 
 document.body.innerHTML += `
@@ -347,7 +366,7 @@ config_modal.innerHTML = `
 
         </select>
         <div>
-        <label for="auto-speak">Fala automatica</label><input type="checkbox" checked name="auto-speak" id="auto-speak">
+        <label for="auto-speak">Fala automatica</label><input type="checkbox" name="auto-speak" id="auto-speak">
         </div>
         <div class="ed-info">
             <p>como usar?</p>
